@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachin Bhardwaj — MERN Stack Developer</title>
+<meta name="description" content="Portfolio of Sachin Bhardwaj, a MERN stack developer from Palwal, India.">
+
+<!-- Favicon (tab icon) -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Google Fonts: JetBrains Mono for the terminal/code personality, Inter for readable body text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="logo-bracket">&lt;</span>Sachin<span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- Dark / light mode toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-inner">
+
+    <div class="hero-text">
+      <p class="eyebrow">// full-stack developer</p>
+      <h1>Hi, I'm <span class="highlight">Sachin Bhardwaj</span></h1>
+      <p class="subtitle">
+        I build fast, responsive web apps with the <span class="accent-cyan">MERN Stack</span> —
+        turning ideas into clean, working code.
+      </p>
+      <p class="hero-summary">
+        BCA graduate from Amity University Online, passionate about crafting scalable
+        front-to-back web experiences — one commit at a time.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Signature element: a live-typing terminal window -->
+    <div class="terminal-window" aria-hidden="true">
+      <div class="terminal-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="terminal-title">sachin@palwal:~</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="prompt">$</span> whoami</p>
+        <p class="terminal-output" id="typedOutput"></p>
+        <p><span class="prompt">$</span> <span class="cursor" id="cursor">_</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <p class="section-label">01 · about</p>
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm Sachin, a web developer rooted in <strong>Palwal, Haryana</strong>, with a genuine
+          love for building things that live on the internet. My journey into code started with
+          curiosity and turned into a Bachelor of Computer Applications (BCA) degree from
+          <strong> Amity University Online, Noida</strong>.
+        </p>
+        <p>
+          Since then, I've been sharpening my skills across the <strong>MERN stack</strong> —
+          MongoDB, Express.js, React.js, and Node.js — while keeping HTML, CSS, and modern
+          JavaScript (ES6+) as my foundation. I care about writing code that's clean, scalable,
+          and built to actually work for real users, not just look good in a demo.
+        </p>
+        <p>
+          When I'm not coding, I'm usually exploring new tools, reading about system design, or
+          rebuilding a favorite app from scratch just to understand how it ticks.
+        </p>
+      </div>
+
+      <div class="about-cards">
+        <div class="info-card">
+          <span class="info-icon">🎓</span>
+          <h3>Education</h3>
+          <p>BCA, Amity University Online, Noida</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">📍</span>
+          <h3>Based in</h3>
+          <p>Palwal, Haryana, India</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">🚀</span>
+          <h3>Focus</h3>
+          <p>Scalable full-stack web apps</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="skills" id="skills">
+  <div class="section-inner">
+    <p class="section-label">02 · skills</p>
+    <h2 class="section-title">Tech Stack</h2>
+    <p class="section-subtitle">Tools and languages I use to bring ideas to life.</p>
+
+    <div class="skills-grid">
+      <div class="skill-badge"><span class="skill-icon" style="color:#e34f26">◆</span>HTML5</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#2965f1">◆</span>CSS3</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#f0db4f">◆</span>JavaScript (ES6+)</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#61dafb">◆</span>React.js</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#68a063">◆</span>Node.js</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#a3a3a3">◆</span>Express.js</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#47a248">◆</span>MongoDB</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#f34f29">◆</span>Git &amp; GitHub</div>
+      <div class="skill-badge"><span class="skill-icon" style="color:#22d3ee">◆</span>VS Code</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <p class="section-label">03 · projects</p>
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-subtitle">A few things I've built while learning by doing.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-thumb amazon-thumb">
+          <span class="project-thumb-label">Amazon Clone</span>
+        </div>
+        <div class="project-body">
+          <h3>Amazon Clone</h3>
+          <p>
+            A full-stack e-commerce replica featuring a dynamic product grid, cart
+            functionality, and a fully responsive UI — built with my MERN and frontend skills.
+          </p>
+          <div class="tech-badges">
+            <span>React</span><span>Node.js</span><span>MongoDB</span><span>CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="btn-small btn-small-primary">Live Demo</a>
+            <a href="#" class="btn-small btn-small-outline">GitHub Repo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-thumb github-thumb">
+          <span class="project-thumb-label">GitHub Clone</span>
+        </div>
+        <div class="project-body">
+          <h3>GitHub Clone</h3>
+          <p>
+            A web app that mimics GitHub's repository listing and user profile interface,
+            built with plain HTML, CSS, and JavaScript to master core UI logic.
+          </p>
+          <div class="tech-badges">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="btn-small btn-small-primary">Live Demo</a>
+            <a href="#" class="btn-small btn-small-outline">GitHub Repo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-thumb task-thumb">
+          <span class="project-thumb-label">Task Manager</span>
+        </div>
+        <div class="project-body">
+          <h3>MERN Task Manager</h3>
+          <p>
+            A full-stack task management app with user authentication, CRUD operations, and
+            a real-time dashboard — powered end-to-end by the MERN stack.
+          </p>
+          <div class="tech-badges">
+            <span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="btn-small btn-small-primary">Live Demo</a>
+            <a href="#" class="btn-small btn-small-outline">GitHub Repo</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <p class="section-label">04 · contact</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">Have a project in mind or just want to say hi? My inbox is open.</p>
+
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+        <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+
+      <div class="contact-links">
+        <a href="https://github.com/" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon">🐙</span>
+          <div><strong>GitHub</strong><small>github.com/sachinbhardwaj</small></div>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon">💼</span>
+          <div><strong>LinkedIn</strong><small>linkedin.com/in/sachinbhardwaj</small></div>
+        </a>
+        <a href="mailto:hello@sachinbhardwaj.dev" class="social-link">
+          <span class="social-icon">✉️</span>
+          <div><strong>Email</strong><small>hello@sachinbhardwaj.dev</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Sachin Bhardwaj. Built with HTML, CSS &amp; JavaScript.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
