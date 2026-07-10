@@ -37,7 +37,7 @@ The contact **form** currently only shows a success message locally — it doesn
 
 ## 🚀 Deployment Options
 
-### Option 1: GitHub Pages (free, easiest)
+### Option : GitHub Pages (free, easiest)
 1. Create a new GitHub repo (e.g. `portfolio`).
 2. Upload all 6 files to the repo (drag-and-drop works on github.com, or use `git push`).
 3. Go to **Settings → Pages**.
@@ -71,9 +71,3 @@ python -m http.server 8000
 ```
 
 ---
-
-## 🎨 Customizing later
-
-- **Colors/fonts**: edit the CSS variables at the top of `style.css` (`:root` block).
-- **Typing text in the hero terminal**: edit the `messages` array near the top of `script.js`.
-- **Favicon**: swap `favicon.ico`, `favicon-32.png`, or `apple-touch-icon.png` for new versions — no HTML changes needed as long as filenames stay the same.
