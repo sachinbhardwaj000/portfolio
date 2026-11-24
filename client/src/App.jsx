@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, Menu, Moon, Sun, ArrowUpRight, Code2, GraduationCap, MapPin, Send, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, Moon, Sun, ArrowUpRight, Code2, GraduationCap, MapPin, Send, X, LockKeyhole } from 'lucide-react';
+import AdminDashboard from './AdminDashboard.jsx';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 const fallbackProjects = [
@@ -10,6 +11,7 @@ const fallbackProjects = [
 const skills = ['HTML5','CSS3','JavaScript (ES6+)','React.js','Node.js','Express.js','MongoDB','REST APIs','Git & GitHub'];
 
 export default function App() {
+  if(window.location.pathname.startsWith('/admin')) return <AdminDashboard/>;
   const [theme,setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'dark');
   const [menuOpen,setMenuOpen] = useState(false);
   const [projects,setProjects] = useState(fallbackProjects);
@@ -37,7 +39,7 @@ export default function App() {
   return <div className="app">
     <header className="navbar"><a className="logo" href="#home">&lt;Sachin/&gt;</a>
       <nav className={menuOpen?'nav-links open':'nav-links'}>{['Home','About','Skills','Projects','Contact'].map(item=><a key={item} onClick={()=>setMenuOpen(false)} href={'#'+item.toLowerCase()}>{item}</a>)}</nav>
-      <div className="nav-actions"><button className="icon-btn" aria-label="Toggle theme" onClick={()=>setTheme(theme==='dark'?'light':'dark')}>{theme==='dark'?<Sun/>:<Moon/>}</button><button className="icon-btn menu-btn" aria-label="Toggle navigation" onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</button></div>
+      <div className="nav-actions"><a className="icon-btn admin-shortcut" href="/admin" aria-label="Admin dashboard" title="Admin dashboard"><LockKeyhole size={17}/></a><button className="icon-btn" aria-label="Toggle theme" onClick={()=>setTheme(theme==='dark'?'light':'dark')}>{theme==='dark'?<Sun/>:<Moon/>}</button><button className="icon-btn menu-btn" aria-label="Toggle navigation" onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</button></div>
     </header>
 
     <main>
