@@ -10,8 +10,7 @@ const fallbackProjects = [
 ];
 const skills = ['HTML5','CSS3','JavaScript (ES6+)','React.js','Node.js','Express.js','MongoDB','REST APIs','Git & GitHub'];
 
-export default function App() {
-  if(window.location.pathname.startsWith('/admin')) return <AdminDashboard/>;
+function Portfolio() {
   const [theme,setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'dark');
   const [menuOpen,setMenuOpen] = useState(false);
   const [projects,setProjects] = useState(fallbackProjects);
@@ -63,3 +62,5 @@ export default function App() {
     <footer>© {new Date().getFullYear()} Sachin. Built with React, Node.js, Express & MongoDB.</footer>
   </div>;
 }
+
+export default function App(){ return window.location.pathname.startsWith('/admin') ? <AdminDashboard/> : <Portfolio/>; }
