@@ -1,73 +1,59 @@
-# Sachin Bhardwaj — Portfolio Website
+# Full-Stack Developer Portfolio (MERN)
 
-A responsive, dark-themed developer portfolio built with plain HTML, CSS, and JavaScript.
+A responsive portfolio rebuilt with **React, Node.js, Express and MongoDB**, while keeping the original dark developer-console visual style.
 
-## 📁 Files
+## Features
+- Responsive React portfolio with dark/light theme preference.
+- Projects loaded from MongoDB through a public REST API.
+- Contact form validates input and stores messages in MongoDB.
+- Protected admin API: login, create/update/delete projects, view/read/delete contact messages.
+- JWT authentication, bcrypt password hashing, Helmet security headers, CORS allowlist and rate limiting.
+- Original static HTML/CSS/JS implementation remains available on the `main` branch. This MERN version is isolated on `feature/mern-fullstack-portfolio`.
 
-```
-index.html            → main page (all sections)
-style.css              → all styling, dark/light theme tokens
-script.js              → theme toggle, mobile nav, terminal typing effect, contact form
-favicon.ico            → browser tab icon (multi-size)
-favicon-32.png         → 32px tab icon (modern browsers)
-apple-touch-icon.png   → iOS home-screen icon
-```
+## Stack
+React + Vite | HTML5 | CSS3 | JavaScript | Node.js | Express | MongoDB + Mongoose | JWT | bcrypt
 
-Keep all six files in the **same folder** — nothing else is required.
+## Run locally
+1. Install Node.js 20+ and create a MongoDB database (MongoDB Atlas free tier is fine).
+2. Copy `server/.env.example` to `server/.env` and set real values. Never commit `.env`.
+3. Install packages from the repository root:
+   ```bash
+   npm install
+   ```
+4. Start the API and React app:
+   ```bash
+   npm run dev
+   ```
+5. Open http://localhost:5173. API health: http://localhost:5000/api/health.
 
----
-
-## ✅ Before you deploy — update these placeholders
-
-Open `index.html` and replace:
-
-| What | Line area | Replace with |
-|---|---|---|
-| GitHub link | Contact section (`social-link`) | your real GitHub profile URL |
-| LinkedIn link | Contact section (`social-link`) | your real LinkedIn profile URL |
-| Email | `mailto:hello@sachinbhardwaj.dev` | your real email |
-| Project "Live Demo" buttons (×3) | Projects section | real deployed URLs once each project is hosted |
-| Project "GitHub Repo" buttons (×3) | Projects section | links to each project's actual repo |
-
-Search for `href="#"` and `github.com/` / `linkedin.com/` in the file to find them quickly.
-
-The contact **form** currently only shows a success message locally — it doesn't send email yet. To make it actually deliver messages, connect it to a free service like [Formspree](https://formspree.io) or [EmailJS](https://www.emailjs.com), or point it at your own backend.
-
----
-
-## 🚀 Deployment Options
-
-### Option : GitHub Pages (free, easiest)
-1. Create a new GitHub repo (e.g. `portfolio`).
-2. Upload all 6 files to the repo (drag-and-drop works on github.com, or use `git push`).
-3. Go to **Settings → Pages**.
-4. Under "Source," select the `main` branch and `/ (root)` folder → Save.
-5. Your site goes live at `https://<your-username>.github.io/<repo-name>/` within a minute or two.
-
-### Option 2: Netlify (free, drag-and-drop)
-1. Go to [app.netlify.com/drop](https://app.netlify.com/drop).
-2. Drag the whole folder (all 6 files) into the browser window.
-3. Netlify instantly deploys it and gives you a live URL.
-4. Optional: connect a custom domain under **Site settings → Domain management**.
-
-### Option 3: Vercel (free)
-1. Go to [vercel.com/new](https://vercel.com/new).
-2. Import the folder as a project (or connect it via a GitHub repo).
-3. Leave build settings empty (it's a static site — no build step needed).
-4. Deploy.
-
-Any of these three work well for a static HTML/CSS/JS site like this one — no backend or build tools required.
-
----
-
-## 🔧 Local preview (before deploying)
-
-Just double-click `index.html` to open it in your browser, or for a closer-to-production preview:
-
+## Create the first admin account
+Generate a bcrypt hash locally:
 ```bash
-# Python 3
-python -m http.server 8000
-# then visit http://localhost:8000
+node --input-type=module -e "import bcrypt from 'bcryptjs'; console.log(await bcrypt.hash(process.argv[1], 12))" "your-strong-password"
 ```
+In MongoDB Compass or Atlas, insert one document into the `admins` collection:
+```json
+{ "username": "admin", "passwordHash": "PASTE_BCRYPT_HASH_HERE" }
+```
+Use the same username when signing in through `POST /api/admin/login`. Keep the JWT secret private. Admin routes are ready for a dashboard UI or API client.
 
----
+## API
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/health` | API health |
+| GET | `/api/projects` | Public project list |
+| POST | `/api/contact` | Save a contact message |
+| POST | `/api/admin/login` | Get JWT |
+| POST | `/api/admin/projects` | Create project (Bearer token) |
+| PUT | `/api/admin/projects/:id` | Update project (Bearer token) |
+| DELETE | `/api/admin/projects/:id` | Delete project (Bearer token) |
+| GET | `/api/admin/messages` | List contact messages (Bearer token) |
+| PATCH | `/api/admin/messages/:id/read` | Mark message read |
+| DELETE | `/api/admin/messages/:id` | Delete message |
+
+## Production notes
+- Set `CLIENT_URL` to the exact deployed frontend origin(s), separated by commas.
+- Set `VITE_API_URL` at frontend build time to the deployed API base URL plus `/api`.
+- Use HTTPS, a strong random JWT secret, managed MongoDB credentials, and a secure secrets manager.
+- Add email notifications if you want contact submissions forwarded to an inbox; current implementation stores them in MongoDB.
+- Add an admin dashboard UI and automated tests before calling the project production-complete.
